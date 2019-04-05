@@ -9,7 +9,7 @@ import re
 import subprocess
 import pprint
 
-output = subprocess.run("/usr/local/bin/docker ps",
+output = subprocess.run("PATH=/bin:/usr/bin:/usr/local/bin docker ps",
   shell=True,
   stdout=subprocess.PIPE,
   stderr=subprocess.STDOUT,
