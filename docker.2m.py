@@ -16,12 +16,11 @@ output = subprocess.run("PATH=/bin:/usr/bin:/usr/local/bin docker ps",
   universal_newlines=True)
 
 
-result = re.search("^Cannot connect", output.stdout)
+result = re.search("^CONTAINER ID", output.stdout)
 if (result):
-    print("[D] ✖")
-else:
     numberofrunningcontainers = len(output.stdout.split('\n')) - 2
     print("[D] ► (", str(numberofrunningcontainers), ")")
     print('---')
     print(output.stdout)
-
+else:
+    print("[D] ✖")
